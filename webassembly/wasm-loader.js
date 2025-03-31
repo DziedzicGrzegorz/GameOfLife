@@ -11,4 +11,9 @@ async function initWasm() {
 }
 
 // Initialize WASM and wait for it to be ready
-const wasmPromise = initWasm();
+// const wasmPromise = initWasm();
+
+(async func => {
+    await initWasm();
+    await import("./game.js").then(module => module.initCanvases());
+})()
